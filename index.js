@@ -92,7 +92,7 @@ app.get('/browse', (req, res) => {
 
 
 // Start serwera
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Serwer działa na http://localhost:${PORT}`);
 });
 
@@ -126,3 +126,4 @@ app.get('/watch', (req, res) => {
         </html>
     `);
 });
+
