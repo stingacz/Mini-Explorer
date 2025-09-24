@@ -116,7 +116,7 @@ app.get('/watch', (req, res) => {
         </head>
         <body>
             <h1>${relPath}</h1>
-            <video id="myVideo" width="640" height="360" controls autoplay>
+            <video id="myVideo" width="640" height="360" controls autoplay preload="auto">
                 <source src="/elozelo/${relPath}" type="video/mp4">
                 Twoja przeglądarka nie obsługuje wideo.
             </video>
