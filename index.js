@@ -116,14 +116,25 @@ app.get('/watch', (req, res) => {
         </head>
         <body>
             <h1>${relPath}</h1>
-            <video width="640" height="360" controls autoplay>
+            <video id="myVideo" width="640" height="360" controls autoplay>
                 <source src="/elozelo/${relPath}" type="video/mp4">
                 Twoja przeglądarka nie obsługuje wideo.
             </video>
             <br>
             <a href="javascript:history.back()">⬅ Wróć</a>
         </body>
+        <script>
+            const video = document.getElementById('myVideo');
+
+            const savedVolume = localStorage.getItem('videoVolume');
+            if (savedVolume !== null) {
+                video.volume = parseFloat(savedVolume); // 0.0 - 1.0
+            }
+
+            video.addEventListener('volumechange', () => {
+                localStorage.setItem('videoVolume', video.volume);
+            });
+        </script>
         </html>
     `);
 });
-
