@@ -113,15 +113,26 @@ app.get('/watch', (req, res) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Odtwarzacz</title>
             <link rel="stylesheet" href="/style.css">
+            <style>
+                .center-container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    min-height: 80vh;
+                }
+            </style>
         </head>
         <body>
-            <h1>${relPath}</h1>
-            <video id="myVideo" width="640" height="360" controls autoplay preload="auto">
-                <source src="/elozelo/${relPath}" type="video/mp4">
-                Twoja przeglądarka nie obsługuje wideo.
-            </video>
-            <br>
-            <a href="javascript:history.back()">⬅ Wróć</a>
+            <h1 style="text-align:center">${relPath}</h1>
+            <div class="center-container">
+                <video id="myVideo" width="40%" height="auto" controls autoplay preload="auto">
+                    <source src="/elozelo/${relPath}" type="video/mp4">
+                    Twoja przeglądarka nie obsługuje wideo.
+                </video>
+                <br>
+                <a href="javascript:history.back()">⬅ Wróć</a>
+            </div>
         </body>
         <script>
             const video = document.getElementById('myVideo');
